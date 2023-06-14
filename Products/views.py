@@ -1,4 +1,7 @@
 from django.shortcuts import render
 
-def login(request):
+
+def Products(request):
     return render(request, "addProduct.html")
+
+

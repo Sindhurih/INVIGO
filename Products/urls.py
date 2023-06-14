@@ -1,6 +1,7 @@
 from django.urls import path,include
-from main import views
+from Products import views
 
 urlpatterns = [
-    path('', views.addProduct),
+    path('admin/', views.Products),
+
 ]
