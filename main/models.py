@@ -4,12 +4,17 @@ from INVIGO.base_model import BaseCreatedUpdated
 
 # Create your models here.
 # Products
+class User(BaseCreatedUpdated):
+    email_id = models.CharField(primary_key=True, max_length=50)
+    password = models.CharField(max_length=50)
+
+
 class Products(BaseCreatedUpdated):
-    product_no=models.CharField(primary_key=True,max_length=20)
-    name = models.TextField( max_length=200)
-    quantity=models.IntegerField()
-    price=models.FloatField()
-    pescription=models.TextField(max_length=250)
+    product_no = models.CharField(primary_key=True, max_length=20)
+    name = models.TextField(max_length=200)
+    quantity = models.IntegerField()
+    price = models.FloatField()
+    description = models.TextField(max_length=250)
 
 
 class Supplier(BaseCreatedUpdated):
@@ -23,9 +28,8 @@ class Supplier(BaseCreatedUpdated):
     def __str__(self):
         return self.name
 
+
 class Purchase(BaseCreatedUpdated):
     billno = models.AutoField(primary_key=True)
     time = models.DateTimeField(auto_now=True)
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, related_name='purchasesupplier')
-
-
